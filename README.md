@@ -1,0 +1,2 @@
+# brianpotosi
+il mio curriculum
