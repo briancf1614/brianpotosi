@@ -1,0 +1,26 @@
+# Docker-based alternative deploy (e.g. the N100 home server).
+#
+# Usage, from the repo root:
+#   docker compose -f deploy/docker-compose.yml up -d
+#   -> site on http://<host-ip>:8080
+#
+# Stop / update:
+#   docker compose -f deploy/docker-compose.yml down
+#   git pull && docker compose -f deploy/docker-compose.yml restart
+#
+# Note: this mounts the whole repository read-only, so README.md and the
+# deploy/ folder are technically reachable under /deploy and /README.md.
+# Fine for a home LAN; on a public host prefer the plain nginx setup in
+# deploy/nginx-cv.conf, or point the volume at a folder containing only
+# index.html + assets/.
+
+services:
+  cv-web:
+    image: nginx:alpine
+    container_name: cv-web
+    ports:
+      - "8080:80"            # EDIT: host port if 8080 is taken
+    volumes:
+      # Repo root (parent of deploy/) mounted read-only as the web root
+      - ..:/usr/share/nginx/html:ro
+    restart: unless-stopped
