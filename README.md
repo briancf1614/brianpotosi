@@ -58,25 +58,25 @@ Il sito risponde su `http://<ip-del-server>:8080`. Il container monta la reposit
 
 ## Deploy B2 — Pattern Tailscale: container sul N100, Oracle come front door
 
-La variante che rispecchia l'architettura già in uso: nginx su Oracle riceve le richieste pubbliche e le inoltra **via Tailscale** al container sul N100.
+La variante che rispecchia l'architettura già in uso: nginx su Oracle riceve le richieste pubbliche (dominio **brianpotosi.com**, www ridirige sull'apex) e le inoltra **via Tailscale** al container sul N100.
 
-1. Sul N100 avvia il container (Deploy B qui sopra).
-2. Sul N100 recupera l'indirizzo Tailscale:
+1. Sul N100 avvia il container (Deploy B qui sopra) e recupera l'IP Tailscale:
    ```bash
    tailscale ip -4    # es. 100.x.y.z
    ```
-3. Su **Oracle** installa il reverse proxy fornito:
+2. Su **Oracle** clona il repo e installa il config (il percorso `conf.d` funziona con qualsiasi layout nginx):
    ```bash
-   sudo cp /opt/brianpotosi/deploy/nginx-cv-reverseproxy.conf /etc/nginx/sites-available/cv.conf
-   sudo ln -s /etc/nginx/sites-available/cv.conf /etc/nginx/sites-enabled/
-   ```
-4. Modifica nel file: `server_name` (il tuo dominio) e `proxy_pass` (IP Tailscale del N100, oppure il nome MagicDNS es. `http://n100:8080`), poi:
-   ```bash
+   sudo cp /opt/brianpotosi/deploy/nginx-cv-reverseproxy.conf /etc/nginx/conf.d/cv.conf
+   sudo sed -i 's|100.x.y.z|IL_TUO_IP_TAILSCALE|' /etc/nginx/conf.d/cv.conf
    sudo nginx -t && sudo systemctl reload nginx
    ```
-5. HTTPS: `sudo certbot --nginx -d cv.example.com` (dopo aver puntato il DNS sull'IP pubblico di Oracle).
+3. DNS: record A per `brianpotosi.com` (e `www`) → IP pubblico di Oracle.
+4. HTTPS:
+   ```bash
+   sudo certbot --nginx -d brianpotosi.com -d www.brianpotosi.com
+   ```
 
-> **Nota**: con questa variante il CV non è raggiungibile quando la linea di casa o il N100 sono giù. Il Deploy A (file statici su Oracle) non ha questa dipendenza e dà ad Oracle un ruolo attivo. Scegli in base a come vuoi gestirla: entrambe le config sono pronte.
+> **Nota**: con questa variante il CV non è raggiungibile quando la linea di casa o il N100 sono giù. Il Deploy A (file statici su Oracle) non ha questa dipendenza e dà ad Oracle un ruolo attivo. Se `brianpotosi.com` è già usato da un altro servizio sul nginx di Oracle, passa a un subdominio (es. `cv.brianpotosi.com`).
 
 ## Struttura
 
