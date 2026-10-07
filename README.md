@@ -48,13 +48,35 @@ I colori, i font e le variabili di design sono in cima a `assets/css/style.css` 
 
 ## Deploy B — N100 con Docker (alternativa)
 
-Dalla root del repo:
+Dalla root del repo (sul N100):
 
 ```bash
 docker compose -f deploy/docker-compose.yml up -d
 ```
 
 Il sito risponde su `http://<ip-del-server>:8080`. Il container monta la repository in sola lettura e si riavvia da solo (`unless-stopped`). Vedi i commenti dentro `deploy/docker-compose.yml` per dettagli e limiti.
+
+## Deploy B2 — Pattern Tailscale: container sul N100, Oracle come front door
+
+La variante che rispecchia l'architettura già in uso: nginx su Oracle riceve le richieste pubbliche e le inoltra **via Tailscale** al container sul N100.
+
+1. Sul N100 avvia il container (Deploy B qui sopra).
+2. Sul N100 recupera l'indirizzo Tailscale:
+   ```bash
+   tailscale ip -4    # es. 100.x.y.z
+   ```
+3. Su **Oracle** installa il reverse proxy fornito:
+   ```bash
+   sudo cp /opt/brianpotosi/deploy/nginx-cv-reverseproxy.conf /etc/nginx/sites-available/cv.conf
+   sudo ln -s /etc/nginx/sites-available/cv.conf /etc/nginx/sites-enabled/
+   ```
+4. Modifica nel file: `server_name` (il tuo dominio) e `proxy_pass` (IP Tailscale del N100, oppure il nome MagicDNS es. `http://n100:8080`), poi:
+   ```bash
+   sudo nginx -t && sudo systemctl reload nginx
+   ```
+5. HTTPS: `sudo certbot --nginx -d cv.example.com` (dopo aver puntato il DNS sull'IP pubblico di Oracle).
+
+> **Nota**: con questa variante il CV non è raggiungibile quando la linea di casa o il N100 sono giù. Il Deploy A (file statici su Oracle) non ha questa dipendenza e dà ad Oracle un ruolo attivo. Scegli in base a come vuoi gestirla: entrambe le config sono pronte.
 
 ## Struttura
 
@@ -63,7 +85,8 @@ index.html                  pagina unica (tutte le sezioni + marker EDIT)
 assets/css/style.css        design system, layout, animazioni, stile di stampa
 assets/js/main.js           canvas hero, typewriter, menu, scroll-reveal
 assets/favicon.svg          monogramma "BP"
-deploy/nginx-cv.conf        server block nginx commentato
+deploy/nginx-cv.conf        server block nginx commentato (file statici su Oracle)
+deploy/nginx-cv-reverseproxy.conf  reverse proxy Oracle -> N100 via Tailscale
 deploy/docker-compose.yml   variante Docker (nginx:alpine)
 ```
 
