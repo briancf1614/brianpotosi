@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <!-- EDIT: title, description and URLs below — replace example.com with your real domain -->
+  <title>Brian Potosi — IT Specialist &amp; Web Developer</title>
+  <meta name="description" content="Sito curriculum e portfolio di Brian Potosi: IT Specialist e Web Developer. Supporto IT, sviluppo web e soluzioni digitali semplici e affidabili." />
+  <meta name="author" content="Brian Potosi" />
+  <meta name="theme-color" content="#07080f" />
+  <link rel="canonical" href="https://cv.example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="Brian Potosi — IT Specialist &amp; Web Developer" />
+  <meta property="og:description" content="Curriculum e portfolio: supporto IT, sviluppo web e soluzioni digitali." />
+  <meta property="og:url" content="https://cv.example.com/" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Favicon: local SVG monogram, no external requests -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Fonts: single Google Fonts request (Space Grotesk headings + Inter body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" />
+
+  <!-- Mark JS availability early so reveal animations only hide content when JS runs -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+
+  <!-- ============================== HEADER / NAV ============================== -->
+  <header class="site-header" id="testata">
+    <div class="container header-inner">
+      <!-- EDIT: initials / logo text -->
+      <a class="brand" href="#hero" aria-label="Brian Potosi — torna all'inizio">
+        <span class="brand-mark" aria-hidden="true">BP</span>
+        <span class="brand-name">Brian Potosi</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="menu-principale">
+        <span class="sr-only">Apri o chiudi il menu</span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
+        <ul class="nav-list" id="menu-principale">
+          <li><a class="nav-link" href="#chi-sono">Chi sono</a></li>
+          <li><a class="nav-link" href="#competenze">Competenze</a></li>
+          <li><a class="nav-link" href="#esperienza">Esperienza</a></li>
+          <li><a class="nav-link" href="#progetti">Progetti</a></li>
+          <li><a class="nav-link" href="#formazione">Formazione</a></li>
+          <li><a class="nav-link nav-cta" href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto" tabindex="-1">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="hero">
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+        <p class="hero-eyebrow reveal">Curriculum &amp; Portfolio</p>
+
+        <!-- EDIT: your full name -->
+        <h1 class="hero-name reveal">Brian <span class="gradient-text">Potosi</span></h1>
+
+        <!-- EDIT: rotating roles (JSON array in data-roles) -->
+        <p class="hero-role reveal">
+          <span class="sr-only">IT Specialist, Web Developer, IT Support Technician, Problem Solver</span>
+          <span class="typewriter-line" aria-hidden="true">
+            <span class="typewriter" id="typewriter"
+                  data-roles='["IT Specialist","Web Developer","IT Support Technician","Problem Solver"]'>IT Specialist</span><span class="cursor" aria-hidden="true"></span>
+          </span>
+          <span class="print-role">IT Specialist · Web Developer · IT Support Technician</span>
+        </p>
+
+        <!-- EDIT: short tagline -->
+        <p class="hero-tagline reveal">
+          Aiuto persone e piccole aziende a usare la tecnologia in modo semplice:
+          supporto IT, siti web e soluzioni su misura, senza complicazioni.
+        </p>
+
+        <div class="hero-cta reveal">
+          <!-- EDIT: "Scarica CV" — replace href with the real PDF path (e.g. assets/cv-brian-potosi.pdf) -->
+          <a class="btn btn-primary" href="#contatti">Contattami</a>
+          <a class="btn btn-ghost" href="#">Scarica CV</a>
+        </div>
+
+        <!-- EDIT: social links -->
+        <ul class="hero-social reveal">
+          <li>
+            <a href="https://github.com/brianpotosi" target="_blank" rel="noopener noreferrer" aria-label="Profilo GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/brianpotosi" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452Z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <!-- EDIT: email address (also used in the Contatti section) -->
+            <a href="mailto:brian.potosi@example.com" aria-label="Invia un'email">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"
+                   fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+                <path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="scroll-hint" href="#chi-sono" aria-label="Scorri alla sezione Chi sono">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 9 7 7 7-7"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ============================== CHI SONO ============================== -->
+    <section class="section" id="chi-sono">
+      <div class="container">
+        <p class="section-eyebrow reveal">Chi sono</p>
+        <h2 class="section-title reveal">Dietro il terminale</h2>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <!-- EDIT: bio -->
+            <p>
+              Sono Brian, un appassionato di tecnologia con un approccio pratico:
+              mi piace capire il problema prima di scrivere la prima riga di codice
+              o aprire il primo terminale. Ho esperienza come tecnico IT e come
+              sviluppatore web, e mi trovo a mio segno proprio nell'area dove i
+              due mondi si incontrano.
+            </p>
+            <p>
+              Nel tempo libero gestisco un piccolo homelab, sperimento con Docker
+              e Linux e trasformo curiosità in progetti concreti. Credo in
+              soluzioni semplici, ben documentate e facili da mantenere.
+            </p>
+
+            <dl class="about-facts">
+              <!-- EDIT: quick facts -->
+              <div class="fact">
+                <dt>Ubicazione</dt>
+                <dd>Milano, Italia — remoto-friendly</dd>
+              </div>
+              <div class="fact">
+                <dt>Focus</dt>
+                <dd>Supporto IT, sviluppo web, automazione</dd>
+              </div>
+              <div class="fact">
+                <dt>Disponibilità</dt>
+                <dd>Full-time e progetti freelance</dd>
+              </div>
+            </dl>
+          </div>
+
+          <figure class="about-photo reveal" aria-label="Segnaposto per la tua foto">
+            <!-- EDIT: replace this placeholder with your photo, e.g. <img src="assets/foto.jpg" alt="Ritratto di Brian Potosi"> -->
+            <div class="photo-placeholder">
+              <span aria-hidden="true">BP</span>
+              <figcaption>La tua foto qui</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== COMPETENZE ============================== -->
+    <section class="section section-alt" id="competenze">
+      <div class="container">
+        <p class="section-eyebrow reveal">Competenze</p>
+        <h2 class="section-title reveal">Cosa so fare</h2>
+
+        <div class="skills-grid">
+          <!-- EDIT: skills — add/remove chips freely -->
+          <article class="skills-group glass reveal">
+            <h3>Sistemi &amp; Reti</h3>
+            <ul class="chips">
+              <li class="chip">Linux</li>
+              <li class="chip">Windows Server</li>
+              <li class="chip">Reti TCP/IP</li>
+              <li class="chip">VPN</li>
+              <li class="chip">Virtualizzazione</li>
+              <li class="chip">Backup &amp; ripristino</li>
+            </ul>
+          </article>
+
+          <article class="skills-group glass reveal">
+            <h3>Sviluppo</h3>
+            <ul class="chips">
+              <li class="chip">HTML &amp; CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Python</li>
+              <li class="chip">SQL</li>
+              <li class="chip">Git &amp; GitHub</li>
+              <li class="chip">REST API</li>
+            </ul>
+          </article>
+
+          <article class="skills-group glass reveal">
+            <h3>Cloud &amp; Strumenti</h3>
+            <ul class="chips">
+              <li class="chip">Docker</li>
+              <li class="chip">Docker Compose</li>
+              <li class="chip">Nginx</li>
+              <li class="chip">Monitoring</li>
+              <li class="chip">Microsoft 365</li>
+              <li class="chip">Google Workspace</li>
+            </ul>
+          </article>
+
+          <article class="skills-group glass reveal">
+            <h3>Trasversali</h3>
+            <ul class="chips">
+              <li class="chip">Problem solving</li>
+              <li class="chip">Comunicazione chiara</li>
+              <li class="chip">Lavoro di squadra</li>
+              <li class="chip">Attenzione al dettaglio</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ESPERIENZA ============================== -->
+    <section class="section" id="esperienza">
+      <div class="container">
+        <p class="section-eyebrow reveal">Esperienza</p>
+        <h2 class="section-title reveal">Il percorso</h2>
+
+        <ol class="timeline">
+          <!-- EDIT: work experience -->
+          <li class="timeline-item reveal">
+            <div class="timeline-card glass">
+              <p class="timeline-date">2023 — Oggi</p>
+              <h3>Tecnico IT &amp; Sysadmin</h3>
+              <p class="timeline-org">Azienda Fittizia S.r.l. · Milano</p>
+              <p>
+                Gestione di server Linux e Windows, rete aziendale, backup
+                automatici e help desk di secondo livello. Automazioni con
+                script Python e Bash per ridurre il lavoro ripetitivo.
+              </p>
+              <ul class="tag-row" aria-label="Tecnologie usate">
+                <li>Linux</li><li>Docker</li><li>Backup</li><li>Python</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-card glass">
+              <p class="timeline-date">2021 — 2023</p>
+              <h3>IT Help Desk</h3>
+              <p class="timeline-org">Supporto Remoto S.p.A. · Remoto</p>
+              <p>
+                Assistenza tecnica a oltre 200 utenti, gestione ticket,
+                account Microsoft 365 e preparazione di guide interne per
+                ridurre le richieste ricorrenti.
+              </p>
+              <ul class="tag-row" aria-label="Tecnologie usate">
+                <li>Microsoft 365</li><li>Ticketing</li><li>Active Directory</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-card glass">
+              <p class="timeline-date">2020 — 2021</p>
+              <h3>Tirocinio IT</h3>
+              <p class="timeline-org">Studio Tecnico Rossi · Milano</p>
+              <p>
+                Assemblaggio e manutenzione PC, configurazione di reti locali
+                e primi siti web vetrina per clienti dello studio.
+              </p>
+              <ul class="tag-row" aria-label="Tecnologie usate">
+                <li>Hardware</li><li>Reti LAN</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== PROGETTI ============================== -->
+    <section class="section section-alt" id="progetti">
+      <div class="container">
+        <p class="section-eyebrow reveal">Progetti</p>
+        <h2 class="section-title reveal">Cose che ho costruito</h2>
+
+        <div class="projects-grid">
+          <!-- EDIT: projects — swap titles, descriptions, links and tags -->
+          <article class="project-card glass reveal">
+            <p class="project-kicker">01 · Sito web</p>
+            <h3>Questo portfolio</h3>
+            <p>
+              Sito curriculum statico, zero framework: HTML, CSS e JavaScript
+              vanilla serviti con nginx. Stampabile in PDF direttamente dal browser.
+            </p>
+            <ul class="tag-row" aria-label="Tecnologie">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Nginx</li>
+            </ul>
+            <div class="project-links">
+              <!-- EDIT: real repo/demo links -->
+              <a href="#">Codice<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="#">Demo<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal">
+            <p class="project-kicker">02 · Homelab</p>
+            <h3>Homelab su N100</h3>
+            <p>
+              Mini-server per self-hosting: reverse proxy, container Docker,
+              backup pianificati e monitoraggio dei servizi, tutto documentato.
+            </p>
+            <ul class="tag-row" aria-label="Tecnologie">
+              <li>Docker</li><li>Linux</li><li>Reverse proxy</li><li>Backup</li>
+            </ul>
+            <div class="project-links">
+              <a href="#">Codice<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal">
+            <p class="project-kicker">03 · Automazione</p>
+            <h3>Backup automatici</h3>
+            <p>
+              Script Bash e Python per backup incrementali con log, verifiche
+              di integrità e notifiche in caso di errore.
+            </p>
+            <ul class="tag-row" aria-label="Tecnologie">
+              <li>Bash</li><li>Python</li><li>Cron</li><li>Restic</li>
+            </ul>
+            <div class="project-links">
+              <a href="#">Codice<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal">
+            <p class="project-kicker">04 · Web app</p>
+            <h3>Dashboard meteo</h3>
+            <p>
+              Piccola web app in JavaScript puro che consuma API meteo pubbliche:
+              ricerca città, grafico settimanale e tema scuro.
+            </p>
+            <ul class="tag-row" aria-label="Tecnologie">
+              <li>JavaScript</li><li>REST API</li><li>CSS Grid</li>
+            </ul>
+            <div class="project-links">
+              <a href="#">Codice<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="#">Demo<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FORMAZIONE E LINGUE ============================== -->
+    <section class="section" id="formazione">
+      <div class="container">
+        <p class="section-eyebrow reveal">Formazione e lingue</p>
+        <h2 class="section-title reveal">Studio e cresco</h2>
+
+        <div class="edu-grid">
+          <div class="edu-col reveal">
+            <h3 class="edu-heading">Formazione</h3>
+            <ul class="edu-list">
+              <!-- EDIT: education -->
+              <li class="edu-item">
+                <p class="edu-date">2016 — 2021</p>
+                <h4>Diploma in Informatica</h4>
+                <p class="edu-org">ITIS "Galileo Ferraris" · Milano</p>
+              </li>
+              <li class="edu-item">
+                <p class="edu-date">2023</p>
+                <h4>CCNA: Introduction to Networks</h4>
+                <p class="edu-org">Cisco Networking Academy</p>
+              </li>
+              <li class="edu-item">
+                <p class="edu-date">In preparazione</p>
+                <h4>CompTIA A+</h4>
+                <p class="edu-org">Certificazione autonoma</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="edu-col reveal">
+            <h3 class="edu-heading">Lingue</h3>
+            <ul class="lang-list">
+              <!-- EDIT: languages and levels (meter width: 100 = madrelingua, ~75 avanzato, ~55 intermedio) -->
+              <li class="lang-item">
+                <div class="lang-row">
+                  <span class="lang-name">Italiano</span>
+                  <span class="lang-level">Madrelingua</span>
+                </div>
+                <div class="lang-meter" role="img" aria-label="Italiano: madrelingua">
+                  <span class="lang-fill" style="width: 100%"></span>
+                </div>
+              </li>
+              <li class="lang-item">
+                <div class="lang-row">
+                  <span class="lang-name">Spagnolo</span>
+                  <span class="lang-level">Avanzato (C1)</span>
+                </div>
+                <div class="lang-meter" role="img" aria-label="Spagnolo: livello avanzato C1">
+                  <span class="lang-fill" style="width: 85%"></span>
+                </div>
+              </li>
+              <li class="lang-item">
+                <div class="lang-row">
+                  <span class="lang-name">Inglese</span>
+                  <span class="lang-level">Intermedio (B2)</span>
+                </div>
+                <div class="lang-meter" role="img" aria-label="Inglese: livello intermedio B2">
+                  <span class="lang-fill" style="width: 60%"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTATTI ============================== -->
+    <section class="section section-alt" id="contatti">
+      <div class="container contact-inner">
+        <p class="section-eyebrow reveal">Contatti</p>
+        <h2 class="section-title reveal">Parliamone.</h2>
+        <p class="contact-text reveal">
+          Cerchi qualcuno per il tuo team, un aiuto con la tua infrastruttura
+          o un sito che funzioni davvero? Scrivimi: rispondo di solito entro un giorno.
+        </p>
+
+        <div class="contact-actions reveal">
+          <!-- EDIT: email address -->
+          <a class="btn btn-primary" href="mailto:brian.potosi@example.com">Scrivimi una mail</a>
+          <!-- EDIT: social links (same as hero) -->
+          <ul class="hero-social contact-social">
+            <li>
+              <a href="https://github.com/brianpotosi" target="_blank" rel="noopener noreferrer" aria-label="Profilo GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/brianpotosi" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452Z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        © <span id="anno">2026</span>
+        <!-- EDIT: name in footer -->
+        <span>Brian Potosi</span> — costruito a mano con HTML, CSS e JavaScript vanilla.
+      </p>
+      <a class="to-top" href="#hero">Torna su ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
